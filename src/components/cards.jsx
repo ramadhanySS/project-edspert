@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { getAllProducts } from "../store/product/action";
 
 function Cards() {
   const { entities } = useSelector((state) => state.product);
-  // const navigasi = useNavigate();
+  const navigasi = useNavigate();
 
   const dispath = useDispatch();
 
@@ -15,11 +15,12 @@ function Cards() {
 
   useEffect(() => {
     fetchProduct();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // const goToDetailPage = (productId) => {
-  //   navigasi(`/detail/${productId}`);
-  // };
+  const goToDetailPage = (productId) => {
+    navigasi(`/detail/${productId}`);
+  };
   return (
     <div className="flex flex-col bg-[#EFF4FA]">
       <div className="grid grid-cols-[1fr,1fr,1fr,1fr,1fr,1fr,1fr,1fr] gap-10 m-10 overflow-scroll  ">
@@ -46,7 +47,7 @@ function Cards() {
                     ${product.price}
                   </span>
                   <a
-                    href="#"
+                  onClick={() => goToDetailPage(product.id)}
                     className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     Add to cart
                   </a>

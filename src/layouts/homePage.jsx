@@ -9,7 +9,10 @@ function HomePage () {
     return(
         <>
         <Navbar/>
-        <Hero/>
+        <Hero
+        title="Jadi expert bersama edspert.id"
+        desc="Tingkatkan skill dan pengetahuan bersama para mentor terbaik di bidangnya, untuk siapkan karir impian anda."
+        />
         <Cards />
         <Footer />
         </>
